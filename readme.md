@@ -10,7 +10,7 @@
 ## About project
 Website for HMG group based on php laravel framework.
 
-## Group
+## Development Group
 - **Backend developer: Ilia Gogotchuri**
 - **Frontend developer: Lasha Loladze**
 - **Web Designer: Qeti Pagava**
