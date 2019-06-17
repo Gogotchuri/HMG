@@ -18,8 +18,9 @@ Route::namespace("Front")->group(function() {
        Route::get("/{id}", "NewsController@show");
     });
 
-
 });
+
+Route::get('lang/{locale}', 'LocalizationController@index');
 
 //Admin Routed TODO middleware admin
 Route::namespace("Admin")->prefix("/admin")->group(function(){
