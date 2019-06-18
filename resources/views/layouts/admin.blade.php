@@ -2,5 +2,5 @@
 @section("html-body")
     @include("admin.partials.navbar")
     @yield("content")
-    @include("partials.footer")
+    @include("public.partials.footer")
 @endsection

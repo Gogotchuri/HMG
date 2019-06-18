@@ -6,12 +6,19 @@ Route::namespace("Front")->group(function() {
     Route::get("/", "PageController@home");
     Route::get("/about", "PageController@about");
     Route::get("/team", "PageController@team");
+    Route::get("/contact", "PageController@contact");
     Route::get("/partnership", "PageController@partnership");
     Route::get("/hotel-management", "PageController@hotelManagement");
     Route::get("/revenue-optimization", "PageController@revenueOptimization");
     Route::get("/condo-management", "PageController@condoManagement");
     Route::get("/receivership", "PageController@receivership");
     Route::get("/development", "PageController@development");
+    
+    Route::prefix("/careers")->group(function() {
+       Route::get("/", "PageController@careers");
+       Route::get("/{id}", "JobsController@show");
+    });
+    
 
     Route::prefix("/news")->group(function() {
        Route::get("/", "NewsController@index");

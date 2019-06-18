@@ -1,5 +1,4 @@
 @extends("layouts.public")
-
 @section("content")
 <div>
     <a href="lang/ka">Change language to georgian</a>
