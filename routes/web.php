@@ -25,6 +25,11 @@ Route::namespace("Front")->group(function() {
        Route::get("/{id}", "NewsController@show");
     });
 
+    //Mailing
+    Route::post("/schedule-meeting", "MailController@scheduleMeeting");
+    Route::post("/request-information", "MailController@requestInformation");
+    Route::post("/jobs/{job_id}/application", "MailController@submitApplication");
+
 });
 
 Route::get('lang/{locale}', 'LocalizationController@index');
