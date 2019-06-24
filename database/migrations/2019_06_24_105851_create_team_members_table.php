@@ -18,6 +18,7 @@ class CreateTeamMembersTable extends Migration
             $table->string("first_name");
             $table->string("last_name");
             $table->string("position");
+            $table->string("image_url")->nullable();
             $table->text("history");
             $table->text("email")->nullable();
             $table->text("facebook")->nullable();

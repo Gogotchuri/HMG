@@ -46,9 +46,5 @@ class PageController extends Controller
     public function development(){
         return view("public.development");
     }
-
-    public function careers(){
-        return view("public.development");
-    }
     
 }

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Partner;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class JobCategoryController extends Controller
+class PartnerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class JobCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $partners = Partner::all();
+        return view("admin.partners.partners", compact("partners"));
     }
 
     /**
@@ -24,7 +26,8 @@ class JobCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.partners.create-edit-partner");
+
     }
 
     /**
@@ -35,7 +38,7 @@ class JobCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //TODO
     }
 
     /**
@@ -46,7 +49,8 @@ class JobCategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $partner = Partner::findOrFail($id);
+        return view("admin.partners.partner", compact("partner"));
     }
 
     /**
@@ -57,7 +61,8 @@ class JobCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $partner = Partner::findOrFail($id);
+        return view("admin.partners.create-edit-partner", compact("partner"));
     }
 
     /**
@@ -69,7 +74,7 @@ class JobCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //TODO
     }
 
     /**
@@ -80,6 +85,8 @@ class JobCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $partner = Partner::findOrFail($id);
+        $partner->delete();
+        return $this->index();
     }
 }

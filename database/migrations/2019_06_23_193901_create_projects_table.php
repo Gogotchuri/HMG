@@ -17,7 +17,7 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->string("name");
             $table->text("details");
-
+            $table->boolean("public");
             $table->unsignedInteger("category_id")->default(1);
             $table->foreign("category_id")->references("id")->on("project_categories")->onDelete("cascade");
 

@@ -2,84 +2,77 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
 
 class ImageController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Stores image for article featured
+     * @param int $article_id
+     * @param Request $request
      */
-    public function index()
-    {
-        //
+    public function articleFeatured(int $article_id, Request $request){
+        //TODO
+
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Stores image for article gallery
+     * @param int $article_id
+     * @param Request $request
      */
-    public function create()
-    {
-        //
+    public function articleGallery(int $article_id, Request $request){
+        //TODO
+
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Stores image for project featured image
+     * @param int $project_id
+     * @param Request $request
      */
-    public function store(Request $request)
-    {
-        //
+    public function projectFeatured(int $project_id, Request $request){
+        //TODO
+
     }
+
+    /**
+     * Stores image for project gallery
+     * @param int $project_id
+     * @param Request $request
+     */
+    public function projectGallery(int $project_id, Request $request){
+        //TODO
+    }
+
 
     /**
      * Display the specified resource.
-     *
+     * Adequate for ajax call
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        $image = Image::where("id",$id)->first();
+        if($image == null) return response()->json(["errors" => ["Image not found!"]], 404);
+        return response()->json(["image_url" => $image->url]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {
-        //
+        $image = Image::where("id",$id)->first();
+        if($image == null) return response()->json(["errors" => ["Image not found!"]], 404);
+        $image->delete();
+        return response()->json(["data" => "success"]);
     }
 }

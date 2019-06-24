@@ -26,12 +26,6 @@ class CreateImagesTable extends Migration
             $table->unsignedInteger("article_id")->nullable();
             $table->foreign("article_id")->references("id")->on("articles")->onDelete("cascade");
 
-            $table->unsignedInteger("member_id")->nullable();
-            $table->foreign("member_id")->references("id")->on("team_members")->onDelete("cascade");
-
-            $table->unsignedInteger("job_id")->nullable();
-            $table->foreign("job_id")->references("id")->on("jobs")->onDelete("cascade");
-
             $table->timestamps();
         });
     }
