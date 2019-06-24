@@ -18,9 +18,6 @@ class CreateJobsTable extends Migration
             $table->string("title");
             $table->string("description");
 
-            $table->unsignedInteger("category_id")->nullable();
-            $table->foreign("category_id")->references("id")->on("job_categories")->onDelete("set null");
-
             $table->timestamps();
         });
     }

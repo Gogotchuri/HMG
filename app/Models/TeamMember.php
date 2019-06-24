@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Models\References\ImageCategory;
 use Illuminate\Database\Eloquent\Model;
 
-class Job extends Model
+class TeamMember extends Model
 {
     protected $guarded = [];
 
@@ -18,6 +18,6 @@ class Job extends Model
     }
 
     public function getImageAttribute(){
-        return Image::where("job_id", $this->id)->where("category_id", ImageCategory::JOB_PICTURE)->first();
+        return Image::where("member_id", $this->id)->where("category_id", ImageCategory::MEMBER_PICTURE)->first();
     }
 }

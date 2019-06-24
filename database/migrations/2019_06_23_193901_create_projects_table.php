@@ -18,14 +18,11 @@ class CreateProjectsTable extends Migration
             $table->string("name");
             $table->text("details");
 
-            $table->unsignedInteger("category_id")->nullable();
-            $table->foreign("category_id")->references("id")->on("project_categories")->onDelete("set null");
+            $table->unsignedInteger("category_id")->default(1);
+            $table->foreign("category_id")->references("id")->on("project_categories")->onDelete("cascade");
 
             $table->unsignedInteger("location_id")->nullable();
             $table->foreign("location_id")->references("id")->on("project_locations")->onDelete("set null");
-
-            $table->unsignedInteger("status_id")->nullable();
-            $table->foreign("status_id")->references("id")->on("project_statuses")->onDelete("set null");
 
             $table->timestamps();
         });
