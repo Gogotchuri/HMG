@@ -1,5 +1,3 @@
-<div>
-    <nav>
-        <p>Public navbar</p>
-    </nav>
-</div>
+<nav>
+    <p>Header</p>
+</nav>
