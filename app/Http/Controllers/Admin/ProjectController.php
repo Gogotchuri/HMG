@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Article;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 
-class NewsController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-     return view("admin.news.news");
+        $projects = Project::all();
+        return view("admin.projects.projects", compact("projects"));
     }
 
     /**
@@ -26,8 +27,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        $articles = Article::all();
-        return view("admin.news.create-article", compact("articles"));
+        return view("admin.projects.create-project");
     }
 
     /**
@@ -38,7 +38,7 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //TODO
     }
 
     /**
@@ -49,8 +49,8 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $article = Article::findOfFail($id);
-        return view("admin.news.article", compact("article"));
+        $project = Project::findOrFail($id);
+        return view("admin.projects.project", compact("project"));
     }
 
     /**
@@ -61,8 +61,8 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        $article = Article::findOfFail($id);
-        return view("admin.news.edit-article", compact("article"));
+        $project = Project::findOrFail($id);
+        return view("admin.projects.edit-project", compact("project"));
     }
 
     /**
@@ -85,8 +85,8 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        $article = Article::findOrFail($id);
-        $article->delete();
+        $project = Project::findOrFail($id);
+        $project->delete();
         return $this->index();
     }
 }

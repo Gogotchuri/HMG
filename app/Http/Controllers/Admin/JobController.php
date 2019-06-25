@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Article;
+use App\Models\Job;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 
-class NewsController extends Controller
+class JobController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-     return view("admin.news.news");
+        $jobs = Job::all();
+        return view("admin.jobs", compact("jobs"));
     }
 
     /**
@@ -26,8 +27,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        $articles = Article::all();
-        return view("admin.news.create-article", compact("articles"));
+        //Distinguished from edit with jobs variable being null
+        return view("admin.career.create-edit-job");
     }
 
     /**
@@ -38,7 +39,7 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //TODO validate and store posted store
     }
 
     /**
@@ -49,8 +50,8 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $article = Article::findOfFail($id);
-        return view("admin.news.article", compact("article"));
+        $job = Job::findOrFail($id);
+        return view("admin.career.job", compact("job"));
     }
 
     /**
@@ -61,8 +62,8 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        $article = Article::findOfFail($id);
-        return view("admin.news.edit-article", compact("article"));
+        $job = Job::findOrFail($id);
+        return view("admin.career.create-edit-job", compact("job"));
     }
 
     /**
@@ -85,8 +86,8 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        $article = Article::findOrFail($id);
-        $article->delete();
+        $job = Job::findOrFail($id);
+        $job->delete();
         return $this->index();
     }
 }

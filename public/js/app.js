@@ -19688,8 +19688,13 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! /home/lasha/Documents/Workspace/HMG/resources/js/app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! /home/lasha/Documents/Workspace/HMG/resources/sass/app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! /home/gogotchuri/Workspace/HMG/HMG/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/gogotchuri/Workspace/HMG/HMG/resources/sass/app.scss */"./resources/sass/app.scss");
+>>>>>>> fda919b78af03647a097006160a1f04f79d80d4d
 
 
 /***/ })

@@ -2,6 +2,6 @@
 
 @section('content')
 <div>
-    carreers 
+    career
 </div>
 @endsection
