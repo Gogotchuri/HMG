@@ -32,6 +32,7 @@ Route::namespace("Front")->group(function() {
 
 });
 
+//Language translation Localization
 Route::get('lang/{locale}', 'LocalizationController@index');
 
 //Admin Routed TODO middleware admin

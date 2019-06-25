@@ -10650,18 +10650,6 @@ main {
   min-height: 100vh;
 }
 
-nav {
-  height: 42px;
-  width: 100%;
-  background-color: #dfdfdf;
-}
-
-@media (min-width: 768px) {
-  nav {
-    height: 80px;
-  }
-}
-
 footer {
   height: 40px;
   width: 100%;
